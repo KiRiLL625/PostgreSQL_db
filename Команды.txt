@@ -1,0 +1,14 @@
+CREATE DATABASE testdb; - создаём базу данных testdb
+
+CREATE USER testuser WITH ENCRYPTED PASSWORD 'testpass'; - создаём пользователя testuser с паролем 'testpass'
+
+GRANT ALL PRIVILEGES ON DATABASE testdb TO testuser; - даём все привелегии (доступ) пользователю testuser
+к базе данных testdb
+
+CREATE TABLE userdata (id BIGSERIAL NOT NULL PRIMARY KEY,
+               name VARCHAR(50) NOT NULL,
+               birthyear SMALLINT NOT NULL,
+               email VARCHAR(70) NOT NULL); - создаём таблицу userdata с необходимыми названиями, типами,
+		ограничениями и первичным ключом id
+
+INSERT INTO userdata VALUES (%s, %s, %s, %s); - вставляем данные в таблицу, используя INSERT
